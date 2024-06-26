@@ -9,4 +9,35 @@ export class HomePage {
 
   constructor() {}
 
+
+  weight ? : number;
+  hight ? : number;
+  result ? : number;
+  result_texe ? : string = "";
+
+
+oncal() {
+
+  //console.log("น้ำหนัก =" + this.weight);
+  //console.log("ส่วนสูง =" + this.hight);
+  if(this.hight == undefined || this.weight == undefined){
+    alert("การุณากรอกข้อมูลให้ครบ")
+    return;
+  }
+  var hi = this.hight / 100;
+  this.result = this.weight / (hi*hi)
+  //console.log("ผลลัพธ์ = " + this.result);
+
+  if(this.result <18.5){
+    this.result_texe ="อยู่ในเกณฑ์น้ำหนักน้อยหรือผอม";
+}else if(this.result >=18.5 && this.result <= 22.90){
+  this.result_texe = "อยู่ในเกณฑ์ปกติ";
+}else if(this.result >=23 && this.result <= 24.90){
+  this.result_texe = "น้ำหนักเกิน";
+}else if(this.result >= 25 && this.result <= 29.90){
+  this.result_texe = "โรคอ้วนระยะที่ 1";
+}else{
+this.result_texe = "โรคอ้วนระยะที่ 2";
+}
+}
 }
